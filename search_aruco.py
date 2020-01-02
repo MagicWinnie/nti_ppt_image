@@ -47,7 +47,7 @@ meds = np.mean(corners, axis=2)
 # print(meds)
 # cv2.circle(img,(row, col), 5, (0,255,0), -1)
 
-# cv2.imshow("out", out)
+cv2.imshow("out", out)
 # cv2.waitKey(0)
 
 
@@ -61,7 +61,7 @@ warp_dst = cv.warpAffine(image, warp_mat, (image.shape[1], image.shape[0]))
 
 hsv = cv2.cvtColor(warp_dst, cv2.COLOR_BGR2HSV)
 
-cv2.imshow("hsv", hsv)
+# cv2.imshow("hsv", hsv)
 
 h_min = np.array((0, 75, 75), np.uint8)
 h_max = np.array((8, 238, 238), np.uint8)
@@ -83,8 +83,8 @@ cY = int(M["m01"] / M["m00"])
 cv2.circle(warp_dst, (cX, cY), 7, (255, 0, 255), -1)
 
 
-# cv2.imshow("warped", warp_dst)
-# cv2.waitKey(0)
+cv2.imshow("warped", warp_dst)
+cv2.waitKey(0)
 
 zX = dstTri[0][0]
 zY = dstTri[0][1]
@@ -94,7 +94,7 @@ imgY = zY - cY
 
 realX = imgX * (250*3/warp_dst.shape[1])
 realY = imgY * (250*2/warp_dst.shape[0])
-
+# print(realX, realY)
 realX = int(round(realX, 0))
 realY = int(round(realY, 0))
 
